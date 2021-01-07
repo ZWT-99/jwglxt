@@ -22,27 +22,29 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
  * @version 2021-01-07
  */
 @Table(name="student", alias="a", columns={
-		@Column(name="sno", attrName="sno", label="sno", isPK=true),
-		@Column(name="sname", attrName="sname", label="sname"),
-		@Column(name="sex", attrName="sex", label="sex"),
-		@Column(name="nationality", attrName="nationality", label="nationality"),
-		@Column(name="nativeplace", attrName="nativeplace", label="nativeplace"),
-		@Column(name="major", attrName="major", label="major"),
-		@Column(name="telephone", attrName="telephone", label="telephone"),
-		@Column(name="sbirth", attrName="sbirth", label="sbirth"),
+		@Column(name="sno", attrName="sno", label="学号", isPK=true),
+		@Column(name="sname", attrName="sname", label="姓名"),
+		@Column(name="sex", attrName="sex", label="性别"),
+		@Column(name="nationality", attrName="nationality", label="民族"),
+		@Column(name="nativeplace", attrName="nativeplace", label="籍贯"),
+		@Column(name="major", attrName="major", label="专业"),
+		@Column(name="telephone", attrName="telephone", label="电话"),
+		@Column(name="sbirth", attrName="sbirth", label="生日"),
+		@Column(name="gradeid", attrName="gradeid", label="gradeid"),
 	}, orderBy="a.sno DESC"
 )
 public class Student extends DataEntity<Student> {
 	
 	private static final long serialVersionUID = 1L;
-	private String sno;		// sno
-	private String sname;		// sname
-	private Long sex;		// sex
-	private String nationality;		// nationality
-	private String nativeplace;		// nativeplace
-	private String major;		// major
-	private String telephone;		// telephone
-	private Date sbirth;		// sbirth
+	private String sno;		// 学号
+	private String sname;		// 姓名
+	private Long sex;		// 性别
+	private String nationality;		// 民族
+	private String nativeplace;		// 籍贯
+	private String major;		// 专业
+	private String telephone;		// 电话
+	private Date sbirth;		// 生日
+	private String gradeid;		// gradeid
 	private List<StudentCourse> studentCourseList = ListUtils.newArrayList();		// 子表列表
 	
 	public Student() {
@@ -61,7 +63,7 @@ public class Student extends DataEntity<Student> {
 		this.sno = sno;
 	}
 	
-	@Length(min=0, max=20, message="sname长度不能超过 20 个字符")
+	@Length(min=0, max=20, message="姓名长度不能超过 20 个字符")
 	public String getSname() {
 		return sname;
 	}
@@ -78,7 +80,7 @@ public class Student extends DataEntity<Student> {
 		this.sex = sex;
 	}
 	
-	@Length(min=0, max=20, message="nationality长度不能超过 20 个字符")
+	@Length(min=0, max=20, message="民族长度不能超过 20 个字符")
 	public String getNationality() {
 		return nationality;
 	}
@@ -87,7 +89,7 @@ public class Student extends DataEntity<Student> {
 		this.nationality = nationality;
 	}
 	
-	@Length(min=0, max=20, message="nativeplace长度不能超过 20 个字符")
+	@Length(min=0, max=20, message="籍贯长度不能超过 20 个字符")
 	public String getNativeplace() {
 		return nativeplace;
 	}
@@ -96,7 +98,7 @@ public class Student extends DataEntity<Student> {
 		this.nativeplace = nativeplace;
 	}
 	
-	@Length(min=0, max=20, message="major长度不能超过 20 个字符")
+	@Length(min=0, max=20, message="专业长度不能超过 20 个字符")
 	public String getMajor() {
 		return major;
 	}
@@ -105,7 +107,7 @@ public class Student extends DataEntity<Student> {
 		this.major = major;
 	}
 	
-	@Length(min=0, max=20, message="telephone长度不能超过 20 个字符")
+	@Length(min=0, max=20, message="电话长度不能超过 20 个字符")
 	public String getTelephone() {
 		return telephone;
 	}
@@ -121,6 +123,14 @@ public class Student extends DataEntity<Student> {
 
 	public void setSbirth(Date sbirth) {
 		this.sbirth = sbirth;
+	}
+	
+	public String getGradeid() {
+		return gradeid;
+	}
+
+	public void setGradeid(String gradeid) {
+		this.gradeid = gradeid;
 	}
 	
 	public List<StudentCourse> getStudentCourseList() {

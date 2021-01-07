@@ -12,12 +12,21 @@
 		<#form:form id="inputForm" model="${student}" action="${ctx}/student/student/save" method="post" class="form-horizontal">
 			<div class="box-body">
 				<div class="form-unit">${text('基本信息')}</div>
-				<#form:hidden path="sno"/>
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('sname')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('学号')}：<i class="fa icon-question hide"></i></label>
+							<div class="col-sm-8">
+								<#form:hidden path="isNewRecord"/>
+							<#form:input path="sno" maxlength="20" readonly="${!student.isNewRecord}" class="form-control required abc"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<label class="control-label col-sm-4" title="">
+								<span class="required hide">*</span> ${text('姓名')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="sname" maxlength="20" class="form-control"/>
 							</div>
@@ -26,7 +35,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('sex')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('性别')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="sex" class="form-control digits"/>
 							</div>
@@ -35,7 +44,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('nationality')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('民族')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="nationality" maxlength="20" class="form-control"/>
 							</div>
@@ -44,7 +53,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('nativeplace')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('籍贯')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="nativeplace" maxlength="20" class="form-control"/>
 							</div>
@@ -53,7 +62,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('major')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('专业')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="major" maxlength="20" class="form-control"/>
 							</div>
@@ -62,7 +71,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('telephone')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('电话')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="telephone" maxlength="20" class="form-control"/>
 							</div>
@@ -71,13 +80,14 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('sbirth')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('生日')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="sbirth" readonly="true" maxlength="20" class="form-control laydate"
 									dataFormat="datetime" data-type="datetime" data-format="yyyy-MM-dd HH:mm"/>
 							</div>
 						</div>
 					</div>
+				<#form:hidden path="gradeid"/>
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
@@ -124,10 +134,11 @@ $("#studentCourseDataGrid").dataGrid({
 	// 设置数据表格列
 	columnModel: [
 		{header:'状态', name:'status', editable:true, hidden:true},
-		{header:'主键', name:'sno', editable:true, hidden:true},
-		{header:'${text("cno")}', name:'cno.sno', editable:true, hidden:true},
-		{header:'${text("cscore")}', name:'cscore', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
-		{header:'${text("statu")}', name:'statu', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
+		{header:'主键', name:'grade', editable:true, hidden:true},
+		{header:'${text("学号")}', name:'snoId.sno', editable:true, hidden:true},
+		{header:'${text("课程号")}', name:'cno', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'10', 'class':'form-control'}},
+		{header:'${text("分数")}', name:'cscore', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
+		{header:'${text("状态")}', name:'statu', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
 		{header:'${text("操作")}', name:'actions', width:80, sortable:false, fixed:true, formatter: function(val, obj, row, act){
 			var actions = [];
 			if (val == 'new'){
@@ -143,11 +154,11 @@ $("#studentCourseDataGrid").dataGrid({
 	editGrid: true,				// 是否是编辑表格
 	editGridInitRowNum: 1,		// 编辑表格的初始化新增行数
 	editGridAddRowBtn: $('#studentCourseDataGridAddRowBtn'),	// 子表增行按钮
-	editGridAddRowInitData: {sno: '', status: Global.STATUS_NORMAL},	// 新增行的时候初始化的数据
+	editGridAddRowInitData: {grade: '', status: Global.STATUS_NORMAL},	// 新增行的时候初始化的数据
 	
 	// 编辑表格的提交数据参数
 	editGridInputFormListName: 'studentCourseList', // 提交的数据列表名
-	editGridInputFormListAttrs: 'status,sno,cno.sno,cscore,statu,', // 提交数据列表的属性字段
+	editGridInputFormListAttrs: 'status,snoId.sno,cno,cscore,statu,grade,', // 提交数据列表的属性字段
 	
 	// 加载成功后执行事件
 	ajaxSuccess: function(data){

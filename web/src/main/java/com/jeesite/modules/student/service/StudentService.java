@@ -69,7 +69,7 @@ public class StudentService extends CrudService<StudentDao, Student> {
 		// 保存 Student子表
 		for (StudentCourse studentCourse : student.getStudentCourseList()){
 			if (!StudentCourse.STATUS_DELETE.equals(studentCourse.getStatus())){
-				studentCourse.setCno(student);
+				studentCourse.setSnoId(student);
 				if (studentCourse.getIsNewRecord()){
 					studentCourseDao.insert(studentCourse);
 				}else{
@@ -100,7 +100,7 @@ public class StudentService extends CrudService<StudentDao, Student> {
 	public void delete(Student student) {
 		super.delete(student);
 		StudentCourse studentCourse = new StudentCourse();
-		studentCourse.setCno(student);
+		studentCourse.setSnoId(student);
 		studentCourseDao.deleteByEntity(studentCourse);
 	}
 	
