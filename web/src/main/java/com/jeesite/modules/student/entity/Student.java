@@ -8,6 +8,8 @@ import java.util.Date;
 import com.jeesite.common.mybatis.annotation.JoinTable;
 import com.jeesite.common.mybatis.annotation.JoinTable.Type;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.List;
+import com.jeesite.common.collect.ListUtils;
 
 import com.jeesite.common.entity.DataEntity;
 import com.jeesite.common.mybatis.annotation.Column;
@@ -17,7 +19,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 /**
  * studentEntity
  * @author sdy
- * @version 2021-01-06
+ * @version 2021-01-07
  */
 @Table(name="student", alias="a", columns={
 		@Column(name="sno", attrName="sno", label="sno", isPK=true),
@@ -41,6 +43,7 @@ public class Student extends DataEntity<Student> {
 	private String major;		// major
 	private String telephone;		// telephone
 	private Date sbirth;		// sbirth
+	private List<StudentCourse> studentCourseList = ListUtils.newArrayList();		// 子表列表
 	
 	public Student() {
 		this(null);
@@ -118,6 +121,14 @@ public class Student extends DataEntity<Student> {
 
 	public void setSbirth(Date sbirth) {
 		this.sbirth = sbirth;
+	}
+	
+	public List<StudentCourse> getStudentCourseList() {
+		return studentCourseList;
+	}
+
+	public void setStudentCourseList(List<StudentCourse> studentCourseList) {
+		this.studentCourseList = studentCourseList;
 	}
 	
 }

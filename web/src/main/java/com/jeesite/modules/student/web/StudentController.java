@@ -25,7 +25,7 @@ import com.jeesite.modules.student.service.StudentService;
 /**
  * studentController
  * @author sdy
- * @version 2021-01-06
+ * @version 2021-01-07
  */
 @Controller
 @RequestMapping(value = "${adminPath}/student/student")
