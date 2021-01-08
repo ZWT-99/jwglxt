@@ -87,7 +87,6 @@
 							</div>
 						</div>
 					</div>
-				<#form:hidden path="gradeid"/>
 				</div>
 				<div class="row">
 					<div class="col-xs-12">
@@ -101,7 +100,7 @@
 						</div>
 					</div>
 				</div>
-				<h4 class="form-unit">${text('student_course')}</h4>
+				<h4 class="form-unit">${text('所修课程')}</h4>
 				<div class="ml10 mr10">
 					<table id="studentCourseDataGrid"></table>
 					<% if (hasPermi('student:student:edit')){ %>
@@ -124,7 +123,7 @@
 </div>
 <% } %>
 <script>
-//初始化student_courseDataGrid对象
+//初始化所修课程DataGrid对象
 $("#studentCourseDataGrid").dataGrid({
 
 	data: ${toJson(student.studentCourseList)},
@@ -137,6 +136,7 @@ $("#studentCourseDataGrid").dataGrid({
 		{header:'主键', name:'grade', editable:true, hidden:true},
 		{header:'${text("学号")}', name:'snoId.sno', editable:true, hidden:true},
 		{header:'${text("课程号")}', name:'cno', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'10', 'class':'form-control'}},
+		{header:'${text("cname")}', name:'cname', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'20', 'class':'form-control'}},
 		{header:'${text("分数")}', name:'cscore', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
 		{header:'${text("状态")}', name:'statu', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
 		{header:'${text("操作")}', name:'actions', width:80, sortable:false, fixed:true, formatter: function(val, obj, row, act){
@@ -158,7 +158,7 @@ $("#studentCourseDataGrid").dataGrid({
 	
 	// 编辑表格的提交数据参数
 	editGridInputFormListName: 'studentCourseList', // 提交的数据列表名
-	editGridInputFormListAttrs: 'status,snoId.sno,cno,cscore,statu,grade,', // 提交数据列表的属性字段
+	editGridInputFormListAttrs: 'status,snoId.sno,cno,cname,cscore,statu,grade,', // 提交数据列表的属性字段
 	
 	// 加载成功后执行事件
 	ajaxSuccess: function(data){

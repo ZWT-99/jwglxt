@@ -10,7 +10,7 @@ import com.jeesite.modules.departs.entity.Departs;
 /**
  * departsDAO接口
  * @author sdy
- * @version 2021-01-07
+ * @version 2021-01-08
  */
 @MyBatisDao
 public interface DepartsDao extends CrudDao<Departs> {

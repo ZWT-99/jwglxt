@@ -17,43 +17,43 @@
 			<#form:form id="searchForm" model="${teacher}" action="${ctx}/teacher/teacher/listData" method="post" class="form-inline hide"
 					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
 				<div class="form-group">
-					<label class="control-label">${text('tname')}：</label>
+					<label class="control-label">${text('姓名')}：</label>
 					<div class="control-inline">
 						<#form:input path="tname" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('sex')}：</label>
+					<label class="control-label">${text('性别')}：</label>
 					<div class="control-inline">
 						<#form:input path="sex" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('department')}：</label>
+					<label class="control-label">${text('学院')}：</label>
 					<div class="control-inline">
 						<#form:input path="department" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('nationality')}：</label>
+					<label class="control-label">${text('民族')}：</label>
 					<div class="control-inline">
 						<#form:input path="nationality" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('nativeplace')}：</label>
+					<label class="control-label">${text('籍贯')}：</label>
 					<div class="control-inline">
 						<#form:input path="nativeplace" maxlength="40" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('telephone')}：</label>
+					<label class="control-label">${text('电话')}：</label>
 					<div class="control-inline">
 						<#form:input path="telephone" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('tbirth')}：</label>
+					<label class="control-label">${text('生日')}：</label>
 					<div class="control-inline">
 						<#form:input path="tbirth" readonly="true" maxlength="20" class="form-control laydate width-datetime"
 							dataFormat="datetime" data-type="datetime" data-format="yyyy-MM-dd HH:mm"/>
@@ -75,15 +75,15 @@
 $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
-		{header:'${text("tname")}', name:'tname', index:'a.tname', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
+		{header:'${text("姓名")}', name:'tname', index:'a.tname', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
 			return '<a href="${ctx}/teacher/teacher/form?tno='+row.tno+'" class="btnList" data-title="${text("编辑teacher")}">'+(val||row.id)+'</a>';
 		}},
-		{header:'${text("sex")}', name:'sex', index:'a.sex', width:150, align:"center"},
-		{header:'${text("department")}', name:'department', index:'a.department', width:150, align:"left"},
-		{header:'${text("nationality")}', name:'nationality', index:'a.nationality', width:150, align:"left"},
-		{header:'${text("nativeplace")}', name:'nativeplace', index:'a.nativeplace', width:150, align:"left"},
-		{header:'${text("telephone")}', name:'telephone', index:'a.telephone', width:150, align:"left"},
-		{header:'${text("tbirth")}', name:'tbirth', index:'a.tbirth', width:150, align:"center"},
+		{header:'${text("性别")}', name:'sex', index:'a.sex', width:150, align:"center"},
+		{header:'${text("学院")}', name:'department', index:'a.department', width:150, align:"left"},
+		{header:'${text("民族")}', name:'nationality', index:'a.nationality', width:150, align:"left"},
+		{header:'${text("籍贯")}', name:'nativeplace', index:'a.nativeplace', width:150, align:"left"},
+		{header:'${text("电话")}', name:'telephone', index:'a.telephone', width:150, align:"left"},
+		{header:'${text("生日")}', name:'tbirth', index:'a.tbirth', width:150, align:"center"},
 		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
 			var actions = [];
 			<% if(hasPermi('teacher:teacher:edit')){ %>

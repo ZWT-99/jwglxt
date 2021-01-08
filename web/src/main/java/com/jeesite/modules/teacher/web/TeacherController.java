@@ -25,7 +25,7 @@ import com.jeesite.modules.teacher.service.TeacherService;
 /**
  * teacherController
  * @author sdy
- * @version 2021-01-06
+ * @version 2021-01-08
  */
 @Controller
 @RequestMapping(value = "${adminPath}/teacher/teacher")
