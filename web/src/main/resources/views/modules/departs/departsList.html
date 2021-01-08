@@ -1,9 +1,9 @@
-<% layout('/layouts/default.html', {title: '学院管理', libs: ['dataGrid']}){ %>
+<% layout('/layouts/default.html', {title: 'departs管理', libs: ['dataGrid']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header">
 			<div class="box-title">
-				<i class="fa icon-notebook"></i> ${text('学院管理')}
+				<i class="fa icon-notebook"></i> ${text('departs管理')}
 			</div>
 			<div class="box-tools pull-right">
 				<a href="#" class="btn btn-default" id="btnSearch" title="${text('查询')}"><i class="fa fa-filter"></i> ${text('查询')}</a>
@@ -17,7 +17,7 @@
 			<#form:form id="searchForm" model="${departs}" action="${ctx}/departs/departs/listData" method="post" class="form-inline hide"
 					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
 				<div class="form-group">
-					<label class="control-label">${text('dname')}：</label>
+					<label class="control-label">${text('学院名称')}：</label>
 					<div class="control-inline">
 						<#form:input path="dname" maxlength="20" class="form-control width-120"/>
 					</div>
@@ -44,7 +44,7 @@
 $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
-		{header:'${text("dname")}', name:'dname', index:'a.dname', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
+		{header:'${text("学院名称")}', name:'dname', index:'a.dname', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
 			return '<a href="${ctx}/departs/departs/form?dname='+row.dname+'" class="btnList" data-title="${text("编辑departs")}">'+(val||row.id)+'</a>';
 		}},
 		{header:'${text("学院信息")}', name:'dinfor', index:'a.dinfor', width:150, align:"left"},

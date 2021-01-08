@@ -18,14 +18,14 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
  * @version 2021-01-08
  */
 @Table(name="departs", alias="a", columns={
-		@Column(name="dname", attrName="dname", label="dname", isPK=true),
+		@Column(name="dname", attrName="dname", label="学院名称", isPK=true),
 		@Column(name="dinfor", attrName="dinfor", label="学院信息"),
 	}, orderBy="a.dname DESC"
 )
 public class Departs extends DataEntity<Departs> {
 	
 	private static final long serialVersionUID = 1L;
-	private String dname;		// dname
+	private String dname;		// 学院名称
 	private String dinfor;		// 学院信息
 	private List<DepartsTeacher> departsTeacherList = ListUtils.newArrayList();		// 子表列表
 	
