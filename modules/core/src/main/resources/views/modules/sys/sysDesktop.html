@@ -1,42 +1,40 @@
 <% layout('/layouts/default.html', {title: '', bodyClass: ''}){ %>
 <!-- <link rel="stylesheet" href="${ctxStatic}/modules/sys/sysDesktop.css?${_version}"> -->
+
 <div class="content pb0">
 	<div class="row">
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box">
+			<div class="info-box" onclick="js.addTabPage(null, '学生信息','${ctx}/student/student')">
 				<span class="info-box-icon bg-aqua"><i class="fa fa-cog"></i></span>
 				<div class="info-box-content">
-					<span class="info-box-text">CPU 使用率</span>
-					<span class="info-box-number">90<small>%</small></span>
+					<span class="info-box-text">学生信息</span>
+
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box">
+			<div class="info-box" onclick="js.addTabPage(null, '教师信息','${ctx}/teacher/teacher')">
 				<span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 				<div class="info-box-content">
-					<span class="info-box-text">关注数</span>
-					<span class="info-box-number">41,410</span>
+					<span class="info-box-text">教师信息</span>
 				</div>
 			</div>
 		</div>
 		<div class="clearfix visible-sm-block"></div>
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box">
+			<div class="info-box" onclick="js.addTabPage(null, '课程信息','${ctx}/course/course')">
 				<span class="info-box-icon bg-green"><i class="fa fa-internet-explorer"></i></span>
 				<div class="info-box-content">
-					<span class="info-box-text">当前在线人数</span>
-					<span class="info-box-number">760</span>
+					<span class="info-box-text">课程信息</span>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box">
+			<div class="info-box" onclick="js.addTabPage(null, '学院信息','${ctx}/departs/departs')">
 				<span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
 
 				<div class="info-box-content">
-					<span class="info-box-text">总用户数</span>
-					<span class="info-box-number">23,052</span>
+					<span class="info-box-text">学院信息</span>
 				</div>
 			</div>
 		</div>
@@ -164,8 +162,7 @@
           <!-- Map box -->
           <!-- /.box -->
 
-          <!-- solid sales graph -->
-          <!-- /.box -->
+          <!-- solid sales graph -->  0-                                                                                                                                         <!-- /.box -->
 
           <!-- Calendar -->
           <div class="box box-solid bg-green-gradient">
