@@ -13,6 +13,8 @@ import com.jeesite.common.entity.Page;
 import com.jeesite.common.service.CrudService;
 import com.jeesite.modules.departs.entity.Departs;
 import com.jeesite.modules.departs.dao.DepartsDao;
+import com.jeesite.modules.departs.entity.Majors;
+import com.jeesite.modules.departs.dao.MajorsDao;
 import com.jeesite.modules.departs.entity.DepartsTeacher;
 import com.jeesite.modules.departs.dao.DepartsTeacherDao;
 
@@ -26,6 +28,9 @@ import com.jeesite.modules.departs.dao.DepartsTeacherDao;
 public class DepartsService extends CrudService<DepartsDao, Departs> {
 	
 	@Autowired
+	private MajorsDao majorsDao;
+	
+	@Autowired
 	private DepartsTeacherDao departsTeacherDao;
 	
 	/**
@@ -37,6 +42,9 @@ public class DepartsService extends CrudService<DepartsDao, Departs> {
 	public Departs get(Departs departs) {
 		Departs entity = super.get(departs);
 		if (entity != null){
+			Majors majors = new Majors(entity);
+			majors.setStatus(Majors.STATUS_NORMAL);
+			entity.setMajorsList(majorsDao.findList(majors));
 			DepartsTeacher departsTeacher = new DepartsTeacher(entity);
 			departsTeacher.setStatus(DepartsTeacher.STATUS_NORMAL);
 			entity.setDepartsTeacherList(departsTeacherDao.findList(departsTeacher));
@@ -63,6 +71,19 @@ public class DepartsService extends CrudService<DepartsDao, Departs> {
 	@Transactional(readOnly=false)
 	public void save(Departs departs) {
 		super.save(departs);
+		// 保存 Departs子表
+		for (Majors majors : departs.getMajorsList()){
+			if (!Majors.STATUS_DELETE.equals(majors.getStatus())){
+				majors.setDname(departs);
+				if (majors.getIsNewRecord()){
+					majorsDao.insert(majors);
+				}else{
+					majorsDao.update(majors);
+				}
+			}else{
+				majorsDao.delete(majors);
+			}
+		}
 		// 保存 Departs子表
 		for (DepartsTeacher departsTeacher : departs.getDepartsTeacherList()){
 			if (!DepartsTeacher.STATUS_DELETE.equals(departsTeacher.getStatus())){
@@ -96,6 +117,9 @@ public class DepartsService extends CrudService<DepartsDao, Departs> {
 	@Transactional(readOnly=false)
 	public void delete(Departs departs) {
 		super.delete(departs);
+		Majors majors = new Majors();
+		majors.setDname(departs);
+		majorsDao.deleteByEntity(majors);
 		DepartsTeacher departsTeacher = new DepartsTeacher();
 		departsTeacher.setDepartment(departs);
 		departsTeacherDao.deleteByEntity(departsTeacher);

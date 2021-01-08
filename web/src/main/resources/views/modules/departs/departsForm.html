@@ -13,14 +13,13 @@
 			<div class="box-body">
 				<div class="form-unit">${text('基本信息')}</div>
 				<div class="row">
-				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
 							<label class="control-label col-sm-2" title="">
 								<span class="required ">*</span> ${text('学院名称')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-5">
 								<#form:hidden path="isNewRecord"/>
-							<#form:input path="dname" maxlength="20" readonly="${!departs.isNewRecord}" class="form-control required abc"/>
+							<#form:input path="dname" maxlength="20" readonly="${!departs.isNewRecord}" class="form-control required"/>
 							</div>
 						</div>
 					</div>
@@ -35,6 +34,13 @@
 							</div>
 						</div>
 					</div>
+				</div>
+				<h4 class="form-unit">${text('专业')}</h4>
+				<div class="ml10 mr10">
+					<table id="majorsDataGrid"></table>
+					<% if (hasPermi('departs:departs:edit')){ %>
+						<a href="#" id="majorsDataGridAddRowBtn" class="btn btn-primary btn-sm mt10 mb10"><i class="fa fa-plus"></i> ${text('增行')}</a>
+					<% } %>
 				</div>
 				<h4 class="form-unit">${text('学院老师')}</h4>
 				<div class="ml10 mr10">
@@ -59,6 +65,45 @@
 </div>
 <% } %>
 <script>
+//初始化专业DataGrid对象
+$("#majorsDataGrid").dataGrid({
+
+	data: ${toJson(departs.majorsList)},
+	datatype: "local", // 设置本地数据
+	autoGridHeight: function(){return 'auto'}, // 设置自动高度
+	
+	// 设置数据表格列
+	columnModel: [
+		{header:'状态', name:'status', editable:true, hidden:true},
+		{header:'主键', name:'mid', editable:true, hidden:true},
+		{header:'${text("学院名称")}', name:'dname.dname', editable:true, hidden:true},
+		{header:'${text("专业")}', name:'major', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'20', 'class':'form-control required'}},
+		{header:'${text("操作")}', name:'actions', width:80, sortable:false, fixed:true, formatter: function(val, obj, row, act){
+			var actions = [];
+			if (val == 'new'){
+				actions.push('<a href="#" onclick="js.confirm(\'${text("你确认要删除这条数据吗？")}\', function(){$(\'#majorsDataGrid\').dataGrid(\'delRowData\',\''+obj.rowId+'\')});return false;"><i class="fa fa-trash-o"></i></a>&nbsp;');
+			}else{
+				actions.push('<a href="#" onclick="js.confirm(\'${text("你确认要删除这条数据吗？")}\', function(){$(\'#majorsDataGrid\').dataGrid(\'setRowData\',\''+obj.rowId+'\',null,{display:\'none\'});$(\'#'+obj.rowId+'_status\').val(\''+Global.STATUS_DELETE+'\');});return false;"><i class="fa fa-trash-o"></i></a>&nbsp;');
+			}
+			return actions.join('');
+		}, editoptions: {defaultValue: 'new'}}
+	],
+	
+	// 编辑表格参数
+	editGrid: true,				// 是否是编辑表格
+	editGridInitRowNum: 1,		// 编辑表格的初始化新增行数
+	editGridAddRowBtn: $('#majorsDataGridAddRowBtn'),	// 子表增行按钮
+	editGridAddRowInitData: {mid: '', status: Global.STATUS_NORMAL},	// 新增行的时候初始化的数据
+	
+	// 编辑表格的提交数据参数
+	editGridInputFormListName: 'majorsList', // 提交的数据列表名
+	editGridInputFormListAttrs: 'status,dname.dname,major,mid,', // 提交数据列表的属性字段
+	
+	// 加载成功后执行事件
+	ajaxSuccess: function(data){
+		
+	}
+});
 //初始化学院老师DataGrid对象
 $("#departsTeacherDataGrid").dataGrid({
 

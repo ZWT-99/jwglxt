@@ -19,7 +19,7 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
  * @author sdy
  * @version 2021-01-08
  */
-@Table(name="departs_teacher", alias="a", columns={
+@Table(name="teacher", alias="a", columns={
 		@Column(name="tno", attrName="tno", label="教师编号", isPK=true),
 		@Column(name="tname", attrName="tname", label="姓名"),
 		@Column(name="sex", attrName="sex", label="性别"),

@@ -27,6 +27,7 @@ public class Departs extends DataEntity<Departs> {
 	private static final long serialVersionUID = 1L;
 	private String dname;		// 学院名称
 	private String dinfor;		// 学院信息
+	private List<Majors> majorsList = ListUtils.newArrayList();		// 子表列表
 	private List<DepartsTeacher> departsTeacherList = ListUtils.newArrayList();		// 子表列表
 	
 	public Departs() {
@@ -52,6 +53,14 @@ public class Departs extends DataEntity<Departs> {
 
 	public void setDinfor(String dinfor) {
 		this.dinfor = dinfor;
+	}
+	
+	public List<Majors> getMajorsList() {
+		return majorsList;
+	}
+
+	public void setMajorsList(List<Majors> majorsList) {
+		this.majorsList = majorsList;
 	}
 	
 	public List<DepartsTeacher> getDepartsTeacherList() {
