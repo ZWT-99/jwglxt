@@ -1,4 +1,4 @@
-<% layout('/layouts/default.html', {title: 'departs管理', libs: ['validate']}){ %>
+<% layout('/layouts/default.html', {title: 'departs管理', libs: ['validate','dataGrid']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header with-border">
@@ -12,7 +12,37 @@
 		<#form:form id="inputForm" model="${departs}" action="${ctx}/departs/departs/save" method="post" class="form-horizontal">
 			<div class="box-body">
 				<div class="form-unit">${text('基本信息')}</div>
-				<#form:hidden path="dname"/>
+				<div class="row">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-sm-2" title="">
+								<span class="required ">*</span> ${text('dname')}：<i class="fa icon-question hide"></i></label>
+							<div class="col-sm-5">
+								<#form:hidden path="isNewRecord"/>
+							<#form:input path="dname" maxlength="20" readonly="${!departs.isNewRecord}" class="form-control required abc"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-sm-2" title="">
+								<span class="required hide">*</span> ${text('学院信息')}：<i class="fa icon-question hide"></i></label>
+							<div class="col-sm-5">
+								<#form:textarea path="dinfor" rows="4" maxlength="255" class="form-control"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h4 class="form-unit">${text('学院老师')}</h4>
+				<div class="ml10 mr10">
+					<table id="departsTeacherDataGrid"></table>
+					<% if (hasPermi('departs:departs:edit')){ %>
+						<a href="#" id="departsTeacherDataGridAddRowBtn" class="btn btn-primary btn-sm mt10 mb10"><i class="fa fa-plus"></i> ${text('增行')}</a>
+					<% } %>
+				</div>
 			</div>
 			<div class="box-footer">
 				<div class="row">
@@ -28,6 +58,59 @@
 	</div>
 </div>
 <% } %>
+<script>
+//初始化学院老师DataGrid对象
+$("#departsTeacherDataGrid").dataGrid({
+
+	data: ${toJson(departs.departsTeacherList)},
+	datatype: "local", // 设置本地数据
+	autoGridHeight: function(){return 'auto'}, // 设置自动高度
+	
+	// 设置数据表格列
+	columnModel: [
+		{header:'状态', name:'status', editable:true, hidden:true},
+		{header:'主键', name:'tno', editable:true, hidden:true},
+		{header:'${text("姓名")}', name:'tname', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'20', 'class':'form-control'}},
+		{header:'${text("性别")}', name:'sex', width:150, editable:true, edittype:'text', editoptions:{'class':'form-control digits'}},
+		{header:'${text("学院")}', name:'department.dname', editable:true, hidden:true},
+		{header:'${text("民族")}', name:'nationality', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'20', 'class':'form-control'}},
+		{header:'${text("籍贯")}', name:'nativeplace', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'40', 'class':'form-control'}},
+		{header:'${text("电话")}', name:'telephone', width:150, editable:true, edittype:'text', editoptions:{'maxlength':'20', 'class':'form-control'}},
+		{header:'${text("生日")}', name:'tbirth', width:150, 
+			formatter:'date', formatoptions:{srcformat:'Y-m-d H:i:s',newformat:'Y-m-d H:i:s'},
+			editable:true, edittype:'text', editoptions:{'class':'form-control laydate', 'readonly':'true',
+				dataInit: function(element){
+					laydate.render({elem:element, type:'datetime', format:'yyyy-MM-dd HH:mm'});
+				}
+			}
+		},
+		{header:'${text("操作")}', name:'actions', width:80, sortable:false, fixed:true, formatter: function(val, obj, row, act){
+			var actions = [];
+			if (val == 'new'){
+				actions.push('<a href="#" onclick="js.confirm(\'${text("你确认要删除这条数据吗？")}\', function(){$(\'#departsTeacherDataGrid\').dataGrid(\'delRowData\',\''+obj.rowId+'\')});return false;"><i class="fa fa-trash-o"></i></a>&nbsp;');
+			}else{
+				actions.push('<a href="#" onclick="js.confirm(\'${text("你确认要删除这条数据吗？")}\', function(){$(\'#departsTeacherDataGrid\').dataGrid(\'setRowData\',\''+obj.rowId+'\',null,{display:\'none\'});$(\'#'+obj.rowId+'_status\').val(\''+Global.STATUS_DELETE+'\');});return false;"><i class="fa fa-trash-o"></i></a>&nbsp;');
+			}
+			return actions.join('');
+		}, editoptions: {defaultValue: 'new'}}
+	],
+	
+	// 编辑表格参数
+	editGrid: true,				// 是否是编辑表格
+	editGridInitRowNum: 1,		// 编辑表格的初始化新增行数
+	editGridAddRowBtn: $('#departsTeacherDataGridAddRowBtn'),	// 子表增行按钮
+	editGridAddRowInitData: {tno: '', status: Global.STATUS_NORMAL},	// 新增行的时候初始化的数据
+	
+	// 编辑表格的提交数据参数
+	editGridInputFormListName: 'departsTeacherList', // 提交的数据列表名
+	editGridInputFormListAttrs: 'status,tno,tname,sex,department.dname,nationality,nativeplace,telephone,tbirth,', // 提交数据列表的属性字段
+	
+	// 加载成功后执行事件
+	ajaxSuccess: function(data){
+		
+	}
+});
+</script>
 <script>
 $("#inputForm").validate({
 	submitHandler: function(form){

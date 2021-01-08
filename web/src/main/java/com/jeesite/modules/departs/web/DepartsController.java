@@ -25,7 +25,7 @@ import com.jeesite.modules.departs.service.DepartsService;
 /**
  * departsController
  * @author sdy
- * @version 2021-01-07
+ * @version 2021-01-08
  */
 @Controller
 @RequestMapping(value = "${adminPath}/departs/departs")

@@ -5,6 +5,7 @@ package com.jeesite.modules.departs.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,15 +13,20 @@ import com.jeesite.common.entity.Page;
 import com.jeesite.common.service.CrudService;
 import com.jeesite.modules.departs.entity.Departs;
 import com.jeesite.modules.departs.dao.DepartsDao;
+import com.jeesite.modules.departs.entity.DepartsTeacher;
+import com.jeesite.modules.departs.dao.DepartsTeacherDao;
 
 /**
  * departsService
  * @author sdy
- * @version 2021-01-07
+ * @version 2021-01-08
  */
 @Service
 @Transactional(readOnly=true)
 public class DepartsService extends CrudService<DepartsDao, Departs> {
+	
+	@Autowired
+	private DepartsTeacherDao departsTeacherDao;
 	
 	/**
 	 * 获取单条数据
@@ -29,7 +35,13 @@ public class DepartsService extends CrudService<DepartsDao, Departs> {
 	 */
 	@Override
 	public Departs get(Departs departs) {
-		return super.get(departs);
+		Departs entity = super.get(departs);
+		if (entity != null){
+			DepartsTeacher departsTeacher = new DepartsTeacher(entity);
+			departsTeacher.setStatus(DepartsTeacher.STATUS_NORMAL);
+			entity.setDepartsTeacherList(departsTeacherDao.findList(departsTeacher));
+		}
+		return entity;
 	}
 	
 	/**
@@ -51,6 +63,19 @@ public class DepartsService extends CrudService<DepartsDao, Departs> {
 	@Transactional(readOnly=false)
 	public void save(Departs departs) {
 		super.save(departs);
+		// 保存 Departs子表
+		for (DepartsTeacher departsTeacher : departs.getDepartsTeacherList()){
+			if (!DepartsTeacher.STATUS_DELETE.equals(departsTeacher.getStatus())){
+				departsTeacher.setDepartment(departs);
+				if (departsTeacher.getIsNewRecord()){
+					departsTeacherDao.insert(departsTeacher);
+				}else{
+					departsTeacherDao.update(departsTeacher);
+				}
+			}else{
+				departsTeacherDao.delete(departsTeacher);
+			}
+		}
 	}
 	
 	/**
@@ -71,6 +96,9 @@ public class DepartsService extends CrudService<DepartsDao, Departs> {
 	@Transactional(readOnly=false)
 	public void delete(Departs departs) {
 		super.delete(departs);
+		DepartsTeacher departsTeacher = new DepartsTeacher();
+		departsTeacher.setDepartment(departs);
+		departsTeacherDao.deleteByEntity(departsTeacher);
 	}
 	
 }

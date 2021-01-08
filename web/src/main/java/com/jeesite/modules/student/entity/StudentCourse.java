@@ -13,11 +13,12 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 /**
  * studentEntity
  * @author sdy
- * @version 2021-01-07
+ * @version 2021-01-08
  */
 @Table(name="student_course", alias="a", columns={
 		@Column(name="sno_id", attrName="snoId.sno", label="学号"),
 		@Column(name="cno", attrName="cno", label="课程号"),
+		@Column(name="cname", attrName="cname", label="cname"),
 		@Column(name="cscore", attrName="cscore", label="分数"),
 		@Column(name="statu", attrName="statu", label="状态"),
 		@Column(name="grade", attrName="grade", label="grade", isPK=true),
@@ -28,6 +29,7 @@ public class StudentCourse extends DataEntity<StudentCourse> {
 	private static final long serialVersionUID = 1L;
 	private Student snoId;		// 学号 父类
 	private String cno;		// 课程号
+	private String cname;		// cname
 	private Long cscore;		// 分数
 	private Long statu;		// 状态
 	private String grade;		// grade
@@ -57,6 +59,15 @@ public class StudentCourse extends DataEntity<StudentCourse> {
 
 	public void setCno(String cno) {
 		this.cno = cno;
+	}
+	
+	@Length(min=0, max=20, message="cname长度不能超过 20 个字符")
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
 	
 	public Long getCscore() {

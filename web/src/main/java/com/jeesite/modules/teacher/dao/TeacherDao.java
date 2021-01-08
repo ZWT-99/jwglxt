@@ -10,7 +10,7 @@ import com.jeesite.modules.teacher.entity.Teacher;
 /**
  * teacherDAO接口
  * @author sdy
- * @version 2021-01-06
+ * @version 2021-01-08
  */
 @MyBatisDao
 public interface TeacherDao extends CrudDao<Teacher> {

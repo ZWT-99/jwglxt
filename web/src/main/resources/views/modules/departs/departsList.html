@@ -18,6 +18,15 @@
 					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
 				<div class="form-group">
 					<label class="control-label">${text('dname')}：</label>
+					<div class="control-inline">
+						<#form:input path="dname" maxlength="20" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('学院信息')}：</label>
+					<div class="control-inline">
+						<#form:input path="dinfor" maxlength="255" class="form-control width-120"/>
+					</div>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-sm">${text('查询')}</button>
@@ -38,6 +47,7 @@ $('#dataGrid').dataGrid({
 		{header:'${text("dname")}', name:'dname', index:'a.dname', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
 			return '<a href="${ctx}/departs/departs/form?dname='+row.dname+'" class="btnList" data-title="${text("编辑departs")}">'+(val||row.id)+'</a>';
 		}},
+		{header:'${text("学院信息")}', name:'dinfor', index:'a.dinfor', width:150, align:"left"},
 		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
 			var actions = [];
 			<% if(hasPermi('departs:departs:edit')){ %>
