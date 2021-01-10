@@ -14,7 +14,7 @@ import com.jeesite.modules.teaching.entity.TeachingPlan;
 import com.jeesite.modules.teaching.dao.TeachingPlanDao;
 
 /**
- * 行政区划Service
+ * 教学计划管理Service
  * @author sdy
  * @version 2021-01-10
  */

@@ -27,7 +27,7 @@ import com.jeesite.modules.teaching.entity.TeachingPlan;
 import com.jeesite.modules.teaching.service.TeachingPlanService;
 
 /**
- * 行政区划Controller
+ * 教学计划管理Controller
  * @author sdy
  * @version 2021-01-10
  */
@@ -128,7 +128,7 @@ public class TeachingPlanController extends BaseController {
 	@ResponseBody
 	public String save(@Validated TeachingPlan teachingPlan) {
 		teachingPlanService.save(teachingPlan);
-		return renderResult(Global.TRUE, text("保存行政区划成功！"));
+		return renderResult(Global.TRUE, text("保存教学计划管理成功！"));
 	}
 	
 	/**
@@ -139,7 +139,7 @@ public class TeachingPlanController extends BaseController {
 	@ResponseBody
 	public String delete(TeachingPlan teachingPlan) {
 		teachingPlanService.delete(teachingPlan);
-		return renderResult(Global.TRUE, text("删除行政区划成功！"));
+		return renderResult(Global.TRUE, text("删除教学计划管理成功！"));
 	}
 	
 	/**

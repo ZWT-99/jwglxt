@@ -1,9 +1,9 @@
-<% layout('/layouts/default.html', {title: '行政区划管理', libs: ['validate']}){ %>
+<% layout('/layouts/default.html', {title: '教学计划管理管理', libs: ['validate']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header with-border">
 			<div class="box-title">
-				<i class="fa icon-note"></i> ${text(teachingPlan.isNewRecord ? '新增行政区划' : '编辑行政区划')}
+				<i class="fa icon-note"></i> ${text(teachingPlan.isNewRecord ? '新增教学计划管理' : '编辑教学计划管理')}
 			</div>
 			<div class="box-tools pull-right">
 				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -15,9 +15,9 @@
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="form-group">
-							<label class="control-label col-sm-4">${text('上级行政区划')}：</label>
+							<label class="control-label col-sm-4">${text('上级教学计划管理')}：</label>
 							<div class="col-sm-8">
-								<#form:treeselect id="parent" title="${text('上级行政区划')}"
+								<#form:treeselect id="parent" title="${text('上级教学计划管理')}"
 									path="parent.id" labelPath="parent.majorCode"
 									url="${ctx}/teaching/teachingPlan/treeData?excludeCode=${teachingPlan.id}"
 									class="" allowClear="true" canSelectRoot="true" canSelectParent="true"/>

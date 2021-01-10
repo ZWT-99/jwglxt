@@ -13,7 +13,7 @@ import com.jeesite.common.mybatis.annotation.Table;
 import com.jeesite.common.mybatis.mapper.query.QueryType;
 
 /**
- * 行政区划Entity
+ * 教学计划管理Entity
  * @author sdy
  * @version 2021-01-10
  */

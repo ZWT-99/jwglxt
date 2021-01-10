@@ -1,9 +1,9 @@
-<% layout('/layouts/default.html', {title: '行政区划管理', libs: ['dataGrid']}){ %>
+<% layout('/layouts/default.html', {title: '教学计划管理管理', libs: ['dataGrid']}){ %>
 <div class="main-content">
 	<div class="box box-main">
 		<div class="box-header">
 			<div class="box-title">
-				<i class="fa icon-notebook"></i> ${text('行政区划管理')}
+				<i class="fa icon-notebook"></i> ${text('教学计划管理管理')}
 			</div>
 			<div class="box-tools pull-right">
 				<a href="#" class="btn btn-default" id="btnSearch" title="${text('查询')}"><i class="fa fa-filter"></i> ${text('查询')}</a>
@@ -11,7 +11,7 @@
 				<a href="#" class="btn btn-default" id="btnExpandTreeNode" title="${text('展开一级')}"><i class="fa fa-angle-double-down"></i> ${text('展开')}</a>
 				<a href="#" class="btn btn-default" id="btnCollapseTreeNode" title="${text('折叠全部')}"><i class="fa fa-angle-double-up"></i> ${text('折叠')}</a>
 				<% if(hasPermi('teaching:teachingPlan:edit')){ %>
-					<a href="${ctx}/teaching/teachingPlan/form" class="btn btn-default btnTool" title="${text('新增行政区划')}"><i class="fa fa-plus"></i> ${text('新增')}</a>
+					<a href="${ctx}/teaching/teachingPlan/form" class="btn btn-default btnTool" title="${text('新增教学计划管理')}"><i class="fa fa-plus"></i> ${text('新增')}</a>
 				<% } %>
 				<a href="#" class="btn btn-default" id="btnSetting" title="${text('设置')}"><i class="fa fa-navicon"></i></a>
 			</div>
@@ -59,7 +59,7 @@ $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
 		{header:'${text("专业编码")}', name:'majorCode', index:'a.major_code', width:250, align:"left", frozen:true, formatter: function(val, obj, row, act){
-			return '( '+row.majorCode+' ) '+'<a href="${ctx}/teaching/teachingPlan/form?majorCode='+row.majorCode+'" class="btnList" data-title="${text("编辑行政区划")}">'+(val||row.id)+'</a>';
+			return '( '+row.majorCode+' ) '+'<a href="${ctx}/teaching/teachingPlan/form?majorCode='+row.majorCode+'" class="btnList" data-title="${text("编辑教学计划管理")}">'+(val||row.id)+'</a>';
 		}},
 		{header:'${text("本级排序号")}', name:'treeSort', index:'a.tree_sort', width:150, align:"center"},
 		{header:'${text("专业名称")}', name:'majorName', index:'a.major_name', width:150, align:"left"},
@@ -71,9 +71,9 @@ $('#dataGrid').dataGrid({
 		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
 			var actions = [];
 			<% if(hasPermi('teaching:teachingPlan:edit')){ %>
-				actions.push('<a href="${ctx}/teaching/teachingPlan/form?majorCode='+row.majorCode+'" class="btnList" title="${text("编辑行政区划")}"><i class="fa fa-pencil"></i></a>&nbsp;');
-				actions.push('<a href="${ctx}/teaching/teachingPlan/delete?majorCode='+row.majorCode+'" class="btnList" title="${text("删除行政区划")}" data-confirm="${text("确认要删除该行政区划及所有子行政区划吗？")}" data-deltreenode="'+row.id+'"><i class="fa fa-trash-o"></i></a>&nbsp;');
-				actions.push('<a href="${ctx}/teaching/teachingPlan/form?parentCode='+row.id+'" class="btnList" title="${text("新增下级行政区划")}"><i class="fa fa-plus-square"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/teaching/teachingPlan/form?majorCode='+row.majorCode+'" class="btnList" title="${text("编辑教学计划管理")}"><i class="fa fa-pencil"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/teaching/teachingPlan/delete?majorCode='+row.majorCode+'" class="btnList" title="${text("删除教学计划管理")}" data-confirm="${text("确认要删除该教学计划管理及所有子教学计划管理吗？")}" data-deltreenode="'+row.id+'"><i class="fa fa-trash-o"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/teaching/teachingPlan/form?parentCode='+row.id+'" class="btnList" title="${text("新增下级教学计划管理")}"><i class="fa fa-plus-square"></i></a>&nbsp;');
 			<% } %>
 			return actions.join('');
 		}}

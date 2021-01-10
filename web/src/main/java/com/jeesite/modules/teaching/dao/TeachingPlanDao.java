@@ -8,7 +8,7 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.teaching.entity.TeachingPlan;
 
 /**
- * 行政区划DAO接口
+ * 教学计划管理DAO接口
  * @author sdy
  * @version 2021-01-10
  */
