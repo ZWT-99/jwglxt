@@ -82,7 +82,7 @@ $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
 		{header:'${text("学号")}', name:'sno', index:'a.sno', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
-			return '<a href="${ctx}/student/student/form?sno='+row.sno+'" class="btnList" data-title="${text("编辑student")}">'+(val||row.id)+'</a>';
+			return '<a href="${ctx}/student/student/form?sno='+row.sno+'" class="btnList" data-title="${text("编辑学生")}">'+(val||row.id)+'</a>';
 		}},
 		{header:'${text("姓名")}', name:'sname', index:'a.sname', width:150, align:"left"},
 		{header:'${text("性别")}', name:'sex', index:'a.sex', width:150, align:"center"},
@@ -94,8 +94,8 @@ $('#dataGrid').dataGrid({
 		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
 			var actions = [];
 			<% if(hasPermi('student:student:edit')){ %>
-				actions.push('<a href="${ctx}/student/student/form?sno='+row.sno+'" class="btnList" title="${text("编辑student")}"><i class="fa fa-pencil"></i></a>&nbsp;');
-				actions.push('<a href="${ctx}/student/student/delete?sno='+row.sno+'" class="btnList" title="${text("删除student")}" data-confirm="${text("确认要删除该student吗？")}"><i class="fa fa-trash-o"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/student/student/form?sno='+row.sno+'" class="btnList" title="${text("编辑学生")}"><i class="fa fa-pencil"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/student/student/delete?sno='+row.sno+'" class="btnList" title="${text("删除学生")}" data-confirm="${text("确认要删除该学生吗？")}"><i class="fa fa-trash-o"></i></a>&nbsp;');
 			<% } %>
 			return actions.join('');
 		}}
