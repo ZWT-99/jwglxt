@@ -2,208 +2,190 @@
 <!-- <link rel="stylesheet" href="${ctxStatic}/modules/sys/sysDesktop.css?${_version}"> -->
 
 <div class="content pb0">
-	<div class="row">
-		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box" onclick="js.addTabPage(null, '学生信息','${ctx}/student/student')">
-				<span class="info-box-icon bg-aqua"><i class="fa fa-cog"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text">学生信息</span>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box" onclick="js.addTabPage(null, '学生信息','${ctx}/student/student')">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-cog"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">学生信息</span>
 
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box" onclick="js.addTabPage(null, '教师信息','${ctx}/teacher/teacher')">
-				<span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text">教师信息</span>
-				</div>
-			</div>
-		</div>
-		<div class="clearfix visible-sm-block"></div>
-		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box" onclick="js.addTabPage(null, '课程信息','${ctx}/course/course')">
-				<span class="info-box-icon bg-green"><i class="fa fa-internet-explorer"></i></span>
-				<div class="info-box-content">
-					<span class="info-box-text">课程信息</span>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="info-box" onclick="js.addTabPage(null, '学院信息','${ctx}/departs/departs')">
-				<span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box" onclick="js.addTabPage(null, '教师信息','${ctx}/teacher/teacher')">
+                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">教师信息</span>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box" onclick="js.addTabPage(null, '课程信息','${ctx}/course/course')">
+                <span class="info-box-icon bg-green"><i class="fa fa-internet-explorer"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">课程信息</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box" onclick="js.addTabPage(null, '学院信息','${ctx}/departs/departs')">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
 
-				<div class="info-box-content">
-					<span class="info-box-text">学院信息</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
+                <div class="info-box-content">
+                    <span class="info-box-text">学院信息</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <section class="col-md-7 ui-sortable">
 
-          <!-- Chat box -->
-          <!-- /.box (chat box) -->
+            <!-- Chat box -->
+            <!-- /.box (chat box) -->
 
-          <!-- TO DO List -->
-          <div class="box box-widget">
-            <div class="box-header">
-              <i class="ion ion-clipboard"></i>
-              <h3 class="box-title">任务列表</h3>
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div>
+            <!-- TO DO List -->
+            <div class="box box-widget">
+                <div class="box-header">
+                    <i class="ion ion-clipboard"></i>
+                    <h3 class="box-title">计划列表</h3>
+                    <div class="box-tools pull-right">
+                        <ul class="pagination pagination-sm inline">
+                            <li><a href="#">«</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+                    <ul class="todo-list ui-sortable">
+                        <li>
+                            <!-- drag handle -->
+                            <span class="handle">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                  </span>
+                            <!-- checkbox -->
+                            <input type="checkbox" value="">
+                            <!-- todo text -->
+                            <span class="text2">停课提醒:原定王雯老师在第8周星期三第6-8节于科503上的环境工程基础课程停上，请各位同学相互告知！</span>
+                            <!-- Emphasis label -->
+                            <!-- General tools such as edit or delete-->
+                            <div class="tools">
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                  <span class="handle">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                  </span>
+                            <input type="checkbox" value="">
+                            <span class="text2">调课提醒:肖亮老师于第8-9周星期二第3-5节在B阶-201上的嵌入式系统设计课程调课到由肖亮老师在第14-15周星期二第3-5节B阶-201上课，请各位同学相互告知！ </span>
+                            <div class="tools">
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                  <span class="handle">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                  </span>
+                            <input type="checkbox" value="">
+                            <span class="text2">调课提醒:尚颖老师于第14周星期一第1-3节在B-506上的操作系统原理课程调课到由尚颖老师在第16周星期六第7-9节B-506上课，请各位同学相互告知！</span>
+                            <div class="tools">
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                  <span class="handle">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                  </span>
+                            <input type="checkbox" value="">
+                            <span class="text2">停课提醒:原定江志英老师在第14周星期三第6-8节于A阶-201上的面向对象程序设计课程停上，请各位同学相互告知！ </span>
+                            <div class="tools">
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </div>
+                        </li>
+                        <li>
+                  <span class="handle">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-ellipsis-v"></i>
+                  </span>
+                            <input type="checkbox" value="">
+                            <span class="text2">调课提醒:韩阳老师于第6周星期六第11-13节在A阶-101上的计算机系统结构课程调课到由韩阳老师在第6周星期六第1-3节A-503上课，请各位同学相互告知！</span>
+                            <div class="tools">
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <button type="button" class="btn btn-default pull-right" onclick="js.addTabPage(null, '计划管理','${ctx}/plan/plan')"><i class="fa fa-plus"></i> 更多计划</button>
+                </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-              <ul class="todo-list ui-sortable">
-                <li>
-                  <!-- drag handle -->
-                  <span class="handle">
-                    <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                  </span>
-                  <!-- checkbox -->
-                  <input type="checkbox" value="">
-                  <!-- todo text -->
-                  <span class="text2">模块及插件分项目，尽量松耦合，方便模块升级、增减模块</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 分钟</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                  </span>
-                  <input type="checkbox" value="">
-                  <span class="text2">模块化数据库自动升级程序，自动对应版本执行 SQL 更新 </span>
-                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 小时</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                  </span>
-                  <input type="checkbox" value="">
-                  <span class="text2">持久层 @Table 注解配置，节省 85% 的重复 SQL 编写</span>
-                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 天</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                  </span>
-                  <input type="checkbox" value="">
-                  <span class="text2">完善的安全体系，身份认证、密码策略、安全审计、日志收集 </span>
-                  <small class="label label-success"><i class="fa fa-clock-o"></i> 2 天</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                  </span>
-                  <input type="checkbox" value="">
-                  <span class="text2">平面化界面设计，更加美观、高端、大气、上档次</span>
-                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 3 天</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                  <span class="handle">
-                    <i class="fa fa-ellipsis-v"></i>
-                    <i class="fa fa-ellipsis-v"></i>
-                  </span>
-                  <input type="checkbox" value="">
-                  <span class="text2">基于 Spring Cloud 安全稳定、支持分布式、支持微服务</span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 周</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> 添加任务</button>
-            </div>
-          </div>
-          <!-- /.box -->
+            <!-- /.box -->
 
         </section>
         <section class="col-md-5 ui-sortable ui-sortable">
 
-          <!-- Map box -->
-          <!-- /.box -->
+            <!-- Map box -->
+            <!-- /.box -->
 
-          <!-- solid sales graph -->                                                                                                                                        <!-- /.box -->
+            <!-- solid sales graph -->                                                                                                                                        <!-- /.box -->
 
-          <!-- Calendar -->
-          <div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-                <div class="calendar">
-                    <div class="title">
-                        <h1 class="green" id="calendar-title">Month</h1>
-                        <h2 class="green small" id="calendar-year">Year</h2>
-                        <a href="" id="prev">Prev Month</a>
-                        <a href="" class="nextL" id="next">Next Month</a>
-                    </div>
-                    <div class="body">
-                        <div class="lightgrey body-list">
-                            <ul>
-                                <li>MON</li>
-                                <li>TUE</li>
-                                <li>WED</li>
-                                <li>THU</li>
-                                <li>FRI</li>
-                                <li>SAT</li>
-                                <li>SUN</li>
-                            </ul>
+            <!-- Calendar -->
+            <div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <div class="calendar">
+                        <div class="title">
+                            <h1 class="green" id="calendar-title">Month</h1>
+                            <h2 class="green small" id="calendar-year">Year</h2>
+                            <a href="" id="prev">Prev Month</a>
+                            <a href="" class="nextL" id="next">Next Month</a>
                         </div>
-                        <div class="darkgrey body-list">
-                            <ul id="days">
-                            </ul>
+                        <div class="body">
+                            <div class="lightgrey body-list">
+                                <ul>
+                                    <li>MON</li>
+                                    <li>TUE</li>
+                                    <li>WED</li>
+                                    <li>THU</li>
+                                    <li>FRI</li>
+                                    <li>SAT</li>
+                                    <li>SUN</li>
+                                </ul>
+                            </div>
+                            <div class="darkgrey body-list">
+                                <ul id="days">
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+            <!-- /.box -->
 
         </section>
     </div>
 </div>
 <footer class="main-footer m0">
-	<div class="pull-right hidden-xs">当前版本： ${@Global.getConfig('productVersion')}</div>
-	&copy; ${@DateUtils.getYear()} ${@Global.getConfig('productName')} - Powered By <a href="http://jeesite.com">JeeSite</a>
+    <div class="pull-right hidden-xs">当前版本： ${@Global.getConfig('productVersion')}</div>
+    &copy; ${@DateUtils.getYear()} ${@Global.getConfig('productName')} - Powered By <a href="http://jeesite.com">JeeSite</a>
 </footer>
 <% } %>
 <style type="text/css">
@@ -250,87 +232,87 @@
 <script src="${ctxStatic}/jquery/jquery-ui-sortable-1.12.1.min.js"></script>
 <script src="${ctxStatic}/echarts/4.2/echarts.min.js"></script>
 <script>
-$(function(){
-	$(window).resize(function(){
-		var footerHeight = $('.main-footer').outerHeight() || 0;
-		var windowHeight = $(window).height();
-		$('.content').css('min-height', windowHeight - footerHeight);
-		myChart1.resize(); myChart2.resize(); myChart3.resize();
-	}).resize();
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-		$(window).resize();
-	});
-	$('.ui-sortable').sortable({
-		connectWith : '.ui-sortable',
-		handle      : '.box-header, .nav-tabs',
-		placeholder : 'sort-highlight',
-		forcePlaceholderSize: true,
-		zIndex : 999999
-	}).find('.box-header, .nav-tabs').css('cursor', 'move');
-});
-var month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31];
-var month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];
-var month_name = ["January","Febrary","March","April","May","June","July","Auguest","September","October","November","December"];
-var holder = document.getElementById("days");
-var prev = document.getElementById("prev");
-var next = document.getElementById("next");
-var ctitle = document.getElementById("calendar-title");
-var cyear = document.getElementById("calendar-year");
-var my_date = new Date();
-var my_year = my_date.getFullYear();
-var my_month = my_date.getMonth();
-var my_day = my_date.getDate();
-function dayStart(month, year) {
-    var tmpDate = new Date(year, month, 1);
-    return (tmpDate.getDay());
-}
-function daysMonth(month, year) {
-    var tmp = year % 4;
-    if (tmp == 0) {
-        return (month_olympic[month]);
-    } else {
-        return (month_normal[month]);
+    $(function(){
+        $(window).resize(function(){
+            var footerHeight = $('.main-footer').outerHeight() || 0;
+            var windowHeight = $(window).height();
+            $('.content').css('min-height', windowHeight - footerHeight);
+            myChart1.resize(); myChart2.resize(); myChart3.resize();
+        }).resize();
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            $(window).resize();
+        });
+        $('.ui-sortable').sortable({
+            connectWith : '.ui-sortable',
+            handle      : '.box-header, .nav-tabs',
+            placeholder : 'sort-highlight',
+            forcePlaceholderSize: true,
+            zIndex : 999999
+        }).find('.box-header, .nav-tabs').css('cursor', 'move');
+    });
+    var month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31];
+    var month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];
+    var month_name = ["January","Febrary","March","April","May","June","July","Auguest","September","October","November","December"];
+    var holder = document.getElementById("days");
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+    var ctitle = document.getElementById("calendar-title");
+    var cyear = document.getElementById("calendar-year");
+    var my_date = new Date();
+    var my_year = my_date.getFullYear();
+    var my_month = my_date.getMonth();
+    var my_day = my_date.getDate();
+    function dayStart(month, year) {
+        var tmpDate = new Date(year, month, 1);
+        return (tmpDate.getDay());
     }
-}
-function refreshDate(){
-    var str = "";
-    var totalDay = daysMonth(my_month, my_year); //获取该月总天数
-    var firstDay = dayStart(my_month, my_year); //获取该月第一天是星期几
-    var myclass;
-    for(var i=1; i<firstDay; i++){
-        str += "<li></li>"; //为起始日之前的日期创建空白节点
-    }
-    for(var i=1; i<=totalDay; i++){
-        if((i<my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()) || my_year<my_date.getFullYear() || ( my_year==my_date.getFullYear() && my_month<my_date.getMonth())){
-            myclass = " class='lightgrey'"; //当该日期在今天之前时，以浅灰色字体显示
-        }else if (i==my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()){
-            myclass = " class='green greenbox'"; //当天日期以绿色背景突出显示
-        }else{
-            myclass = " class='darkgrey'"; //当该日期在今天之后时，以深灰字体显示
+    function daysMonth(month, year) {
+        var tmp = year % 4;
+        if (tmp == 0) {
+            return (month_olympic[month]);
+        } else {
+            return (month_normal[month]);
         }
-        str += "<li"+myclass+">"+i+"</li>"; //创建日期节点
     }
-    holder.innerHTML = str; //设置日期显示
-    ctitle.innerHTML = month_name[my_month]; //设置英文月份显示
-    cyear.innerHTML = my_year; //设置年份显示
-}
-refreshDate();
-prev.onclick = function(e){
-    e.preventDefault();
-    my_month--;
-    if(my_month<0){
-        my_year--;
-        my_month = 11;
+    function refreshDate(){
+        var str = "";
+        var totalDay = daysMonth(my_month, my_year); //获取该月总天数
+        var firstDay = dayStart(my_month, my_year); //获取该月第一天是星期几
+        var myclass;
+        for(var i=1; i<firstDay; i++){
+            str += "<li></li>"; //为起始日之前的日期创建空白节点
+        }
+        for(var i=1; i<=totalDay; i++){
+            if((i<my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()) || my_year<my_date.getFullYear() || ( my_year==my_date.getFullYear() && my_month<my_date.getMonth())){
+                myclass = " class='lightgrey'"; //当该日期在今天之前时，以浅灰色字体显示
+            }else if (i==my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()){
+                myclass = " class='green greenbox'"; //当天日期以绿色背景突出显示
+            }else{
+                myclass = " class='darkgrey'"; //当该日期在今天之后时，以深灰字体显示
+            }
+            str += "<li"+myclass+">"+i+"</li>"; //创建日期节点
+        }
+        holder.innerHTML = str; //设置日期显示
+        ctitle.innerHTML = month_name[my_month]; //设置英文月份显示
+        cyear.innerHTML = my_year; //设置年份显示
     }
     refreshDate();
-}
-next.onclick = function(e){
-    e.preventDefault();
-    my_month++;
-    if(my_month>11){
-        my_year++;
-        my_month = 0;
+    prev.onclick = function(e){
+        e.preventDefault();
+        my_month--;
+        if(my_month<0){
+            my_year--;
+            my_month = 11;
+        }
+        refreshDate();
     }
-    refreshDate();
-}
+    next.onclick = function(e){
+        e.preventDefault();
+        my_month++;
+        if(my_month>11){
+            my_year++;
+            my_month = 0;
+        }
+        refreshDate();
+    }
 </script>
