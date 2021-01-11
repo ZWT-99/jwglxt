@@ -29,7 +29,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('专业编码')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('编码')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:hidden path="isNewRecord"/>
 							<#form:input path="majorCode" maxlength="100" readonly="${!teachingPlan.isNewRecord}" class="form-control required abc"/>
@@ -48,7 +48,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required ">*</span> ${text('专业名称')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('名称')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="majorName" maxlength="100" class="form-control required"/>
 							</div>
@@ -57,7 +57,7 @@
 					<div class="col-xs-6">
 						<div class="form-group">
 							<label class="control-label col-sm-4" title="">
-								<span class="required hide">*</span> ${text('专业类型')}：<i class="fa icon-question hide"></i></label>
+								<span class="required hide">*</span> ${text('类型')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-8">
 								<#form:input path="majorType" maxlength="1" class="form-control"/>
 							</div>

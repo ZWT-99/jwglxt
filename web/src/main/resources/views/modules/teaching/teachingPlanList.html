@@ -20,13 +20,13 @@
 			<#form:form id="searchForm" model="${teachingPlan}" action="${ctx}/teaching/teachingPlan/listData" method="post" class="form-inline hide"
 					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
 				<div class="form-group">
-					<label class="control-label">${text('专业名称')}：</label>
+					<label class="control-label">${text('名称')}：</label>
 					<div class="control-inline">
 						<#form:input path="majorName" maxlength="100" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('专业类型')}：</label>
+					<label class="control-label">${text('类型')}：</label>
 					<div class="control-inline">
 						<#form:input path="majorType" maxlength="1" class="form-control width-120"/>
 					</div>
@@ -58,12 +58,12 @@
 $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
-		{header:'${text("专业编码")}', name:'majorCode', index:'a.major_code', width:250, align:"left", frozen:true, formatter: function(val, obj, row, act){
+		{header:'${text("编码")}', name:'majorCode', index:'a.major_code', width:250, align:"left", frozen:true, formatter: function(val, obj, row, act){
 			return '( '+row.majorCode+' ) '+'<a href="${ctx}/teaching/teachingPlan/form?majorCode='+row.majorCode+'" class="btnList" data-title="${text("编辑教学计划管理")}">'+(val||row.id)+'</a>';
 		}},
 		{header:'${text("本级排序号")}', name:'treeSort', index:'a.tree_sort', width:150, align:"center"},
-		{header:'${text("专业名称")}', name:'majorName', index:'a.major_name', width:150, align:"left"},
-		{header:'${text("专业类型")}', name:'majorType', index:'a.major_type', width:150, align:"left"},
+		{header:'${text("名称")}', name:'majorName', index:'a.major_name', width:150, align:"left"},
+		{header:'${text("类型")}', name:'majorType', index:'a.major_type', width:150, align:"left"},
 		{header:'${text("状态")}', name:'status', index:'a.status', width:150, align:"center", formatter: function(val, obj, row, act){
 			return js.getDictLabel(${@DictUtils.getDictListJson('sys_search_status')}, val, '${text("未知")}', true);
 		}},
