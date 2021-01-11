@@ -38,12 +38,12 @@ public class PlanController extends BaseController {
 	 * 获取数据
 	 */
 	@ModelAttribute
-	public Plan get(String planid, String term, String year, String cno, boolean isNewRecord) {
+	public Plan get(String planid, String 学期, String 年, String 课程编码, boolean isNewRecord) {
 		Plan plan = new Plan();
 		plan.setPlanid(planid);
-		plan.setTerm(term);
-		plan.setYear(year);
-		plan.setCno(cno);
+		plan.set学期(学期);
+		plan.set年(年);
+		plan.set课程编码(课程编码);
 		plan.setIsNewRecord(isNewRecord);
 		return planService.getAndValid(plan);
 	}

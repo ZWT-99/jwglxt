@@ -19,25 +19,25 @@
 				<div class="form-group">
 					<label class="control-label">${text('学期')}：</label>
 					<div class="control-inline">
-						<#form:input path="term" maxlength="20" class="form-control width-120"/>
+						<#form:input path="学期" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label">${text('年份')}：</label>
+					<label class="control-label">${text('年')}：</label>
 					<div class="control-inline">
-						<#form:input path="year" maxlength="20" class="form-control width-120"/>
+						<#form:input path="年" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label">${text('课程编码')}：</label>
 					<div class="control-inline">
-						<#form:input path="cno" maxlength="20" class="form-control width-120"/>
+						<#form:input path="课程编码" maxlength="20" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label">${text('详情')}：</label>
 					<div class="control-inline">
-						<#form:input path="rl" maxlength="20" class="form-control width-120"/>
+						<#form:input path="详情" maxlength="100" class="form-control width-120"/>
 					</div>
 				</div>
 				<div class="form-group">
@@ -56,17 +56,17 @@
 $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
-		{header:'${text("学期")}', name:'term', index:'a.term', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
-			return '<a href="${ctx}/plan/plan/form?planid='+row.planid+'&term='+row.term+'&year='+row.year+'&cno='+row.cno+'" class="btnList" data-title="${text("编辑plan")}">'+(val||row.id)+'</a>';
+		{header:'${text("学期")}', name:'学期', index:'a.term', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
+			return '<a href="${ctx}/plan/plan/form?planid='+row.planid+'&学期='+row.学期+'&年='+row.年+'&课程编码='+row.课程编码+'" class="btnList" data-title="${text("编辑plan")}">'+(val||row.id)+'</a>';
 		}},
-		{header:'${text("年份")}', name:'year', index:'a.year', width:150, align:"left"},
-		{header:'${text("课程编码")}', name:'cno', index:'a.cno', width:150, align:"left"},
-		{header:'${text("详情")}', name:'rl', index:'a.rl', width:150, align:"left"},
+		{header:'${text("年")}', name:'年', index:'a.year', width:150, align:"left"},
+		{header:'${text("课程编码")}', name:'课程编码', index:'a.cno', width:150, align:"left"},
+		{header:'${text("详情")}', name:'详情', index:'a.rl', width:150, align:"left"},
 		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
 			var actions = [];
 			<% if(hasPermi('plan:plan:edit')){ %>
-				actions.push('<a href="${ctx}/plan/plan/form?planid='+row.planid+'&term='+row.term+'&year='+row.year+'&cno='+row.cno+'" class="btnList" title="${text("编辑plan")}"><i class="fa fa-pencil"></i></a>&nbsp;');
-				actions.push('<a href="${ctx}/plan/plan/delete?planid='+row.planid+'&term='+row.term+'&year='+row.year+'&cno='+row.cno+'" class="btnList" title="${text("删除plan")}" data-confirm="${text("确认要删除该plan吗？")}"><i class="fa fa-trash-o"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/plan/plan/form?planid='+row.planid+'&学期='+row.学期+'&年='+row.年+'&课程编码='+row.课程编码+'" class="btnList" title="${text("编辑plan")}"><i class="fa fa-pencil"></i></a>&nbsp;');
+				actions.push('<a href="${ctx}/plan/plan/delete?planid='+row.planid+'&学期='+row.学期+'&年='+row.年+'&课程编码='+row.课程编码+'" class="btnList" title="${text("删除plan")}" data-confirm="${text("确认要删除该plan吗？")}"><i class="fa fa-trash-o"></i></a>&nbsp;');
 			<% } %>
 			return actions.join('');
 		}}

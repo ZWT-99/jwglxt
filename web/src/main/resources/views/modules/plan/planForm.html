@@ -20,7 +20,7 @@
 							<label class="control-label col-sm-2" title="">
 								<span class="required ">*</span> ${text('学期')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-5">
-								<#form:textarea path="term" rows="4" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
+								<#form:textarea path="学期" rows="4" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
 							</div>
 						</div>
 					</div>
@@ -29,9 +29,9 @@
 					<div class="col-xs-12">
 						<div class="form-group">
 							<label class="control-label col-sm-2" title="">
-								<span class="required ">*</span> ${text('年份')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('年')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-5">
-								<#form:input path="year" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
+								<#form:input path="年" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
 							</div>
 						</div>
 					</div>
@@ -42,7 +42,7 @@
 							<label class="control-label col-sm-2" title="">
 								<span class="required ">*</span> ${text('课程编码')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-5">
-								<#form:input path="cno" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
+								<#form:input path="课程编码" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
 							</div>
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 							<label class="control-label col-sm-2" title="">
 								<span class="required hide">*</span> ${text('详情')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-5">
-								<#form:input path="rl" maxlength="20" class="form-control"/>
+								<#form:textarea path="详情" rows="4" maxlength="100" class="form-control"/>
 							</div>
 						</div>
 					</div>
