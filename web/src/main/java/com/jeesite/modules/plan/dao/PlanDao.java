@@ -10,7 +10,7 @@ import com.jeesite.modules.plan.entity.Plan;
 /**
  * planDAO接口
  * @author gjc
- * @version 2021-01-07
+ * @version 2021-01-11
  */
 @MyBatisDao
 public interface PlanDao extends CrudDao<Plan> {

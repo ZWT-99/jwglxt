@@ -17,7 +17,25 @@
 			<#form:form id="searchForm" model="${plan}" action="${ctx}/plan/plan/listData" method="post" class="form-inline hide"
 					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
 				<div class="form-group">
-					<label class="control-label">${text('rl')}：</label>
+					<label class="control-label">${text('学期')}：</label>
+					<div class="control-inline">
+						<#form:input path="term" maxlength="20" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('年份')}：</label>
+					<div class="control-inline">
+						<#form:input path="year" maxlength="20" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('课程编码')}：</label>
+					<div class="control-inline">
+						<#form:input path="cno" maxlength="20" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('详情')}：</label>
 					<div class="control-inline">
 						<#form:input path="rl" maxlength="20" class="form-control width-120"/>
 					</div>
@@ -38,9 +56,12 @@
 $('#dataGrid').dataGrid({
 	searchForm: $("#searchForm"),
 	columnModel: [
-		{header:'${text("rl")}', name:'rl', index:'a.rl', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
+		{header:'${text("学期")}', name:'term', index:'a.term', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
 			return '<a href="${ctx}/plan/plan/form?planid='+row.planid+'&term='+row.term+'&year='+row.year+'&cno='+row.cno+'" class="btnList" data-title="${text("编辑plan")}">'+(val||row.id)+'</a>';
 		}},
+		{header:'${text("年份")}', name:'year', index:'a.year', width:150, align:"left"},
+		{header:'${text("课程编码")}', name:'cno', index:'a.cno', width:150, align:"left"},
+		{header:'${text("详情")}', name:'rl', index:'a.rl', width:150, align:"left"},
 		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
 			var actions = [];
 			<% if(hasPermi('plan:plan:edit')){ %>

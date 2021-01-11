@@ -25,7 +25,7 @@ import com.jeesite.modules.plan.service.PlanService;
 /**
  * planController
  * @author gjc
- * @version 2021-01-07
+ * @version 2021-01-11
  */
 @Controller
 @RequestMapping(value = "${adminPath}/plan/plan")

@@ -13,15 +13,45 @@
 			<div class="box-body">
 				<div class="form-unit">${text('基本信息')}</div>
 				<#form:hidden path="planid"/>
-				<#form:hidden path="term"/>
-				<#form:hidden path="year"/>
-				<#form:hidden path="cno"/>
 				<div class="row">
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="form-group">
 							<label class="control-label col-sm-2" title="">
-								<span class="required hide">*</span> ${text('rl')}：<i class="fa icon-question hide"></i></label>
+								<span class="required ">*</span> ${text('学期')}：<i class="fa icon-question hide"></i></label>
+							<div class="col-sm-5">
+								<#form:textarea path="term" rows="4" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-sm-2" title="">
+								<span class="required ">*</span> ${text('年份')}：<i class="fa icon-question hide"></i></label>
+							<div class="col-sm-5">
+								<#form:input path="year" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-sm-2" title="">
+								<span class="required ">*</span> ${text('课程编码')}：<i class="fa icon-question hide"></i></label>
+							<div class="col-sm-5">
+								<#form:input path="cno" maxlength="20" readonly="${!plan.isNewRecord}" class="form-control required abc"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-sm-2" title="">
+								<span class="required hide">*</span> ${text('详情')}：<i class="fa icon-question hide"></i></label>
 							<div class="col-sm-5">
 								<#form:input path="rl" maxlength="20" class="form-control"/>
 							</div>

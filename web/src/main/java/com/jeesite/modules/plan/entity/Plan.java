@@ -13,24 +13,24 @@ import com.jeesite.common.mybatis.mapper.query.QueryType;
 /**
  * planEntity
  * @author gjc
- * @version 2021-01-07
+ * @version 2021-01-11
  */
 @Table(name="plan", alias="a", columns={
 		@Column(name="planid", attrName="planid", label="planid", isPK=true),
-		@Column(name="term", attrName="term", label="term", isPK=true),
-		@Column(name="year", attrName="year", label="year", isPK=true),
-		@Column(name="cno", attrName="cno", label="cno", isPK=true),
-		@Column(name="rl", attrName="rl", label="rl"),
+		@Column(name="term", attrName="term", label="学期", isPK=true),
+		@Column(name="year", attrName="year", label="年份", isPK=true),
+		@Column(name="cno", attrName="cno", label="课程编码", isPK=true),
+		@Column(name="rl", attrName="rl", label="详情"),
 	}, orderBy="a.planid DESC, a.term DESC, a.year DESC, a.cno DESC"
 )
 public class Plan extends DataEntity<Plan> {
 	
 	private static final long serialVersionUID = 1L;
 	private String planid;		// planid
-	private String term;		// term
-	private String year;		// year
-	private String cno;		// cno
-	private String rl;		// rl
+	private String term;		// 学期
+	private String year;		// 年份
+	private String cno;		// 课程编码
+	private String rl;		// 详情
 	
 	public Plan() {
 		this(null, null, null, null);
@@ -75,7 +75,7 @@ public class Plan extends DataEntity<Plan> {
 		this.cno = cno;
 	}
 	
-	@Length(min=0, max=20, message="rl长度不能超过 20 个字符")
+	@Length(min=0, max=20, message="详情长度不能超过 20 个字符")
 	public String getRl() {
 		return rl;
 	}
