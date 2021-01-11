@@ -36,7 +36,10 @@
 					</div>
 				</div>
 				<h4 class="form-unit">${text('专业')}</h4>
-				<button type="button" class="btn btn-sm btn-default" onclick="js.addTabPage(null, '教学管理计划','${ctx}/teaching/teachingPlan')"><i class="fa fa-reply-all"></i> ${text('详 情')}</button>
+					<div class="locate">
+						<button type="button" class="btn btn-sm btn-default" onclick="js.addTabPage(null, '教学管理计划','${ctx}/teaching/teachingPlan')">${text('详 情')}</button>
+					</div>
+				<div> </div>
 				<div class="ml10 mr10">
 					<table id="majorsDataGrid"></table>
 					<% if (hasPermi('departs:departs:edit')){ %>
@@ -65,6 +68,11 @@
 	</div>
 </div>
 <% } %>
+<style type="text/css">
+	.locate{
+		text-align:center;
+	}
+</style>
 <script>
 //初始化专业DataGrid对象
 $("#majorsDataGrid").dataGrid({
